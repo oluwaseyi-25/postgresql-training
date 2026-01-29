@@ -34,7 +34,7 @@ PostgreSQL supports `inner join`, `left join`, `right join`, `full outer join`, 
 ## Why We Join Tables?
 Joins aren’t just about merging tables—they serve different purposes based on what you need.
 
-### 1. Recombine Data (Big Picture)
+## 1. Recombine Data (Big Picture)
 ![](https://substackcdn.com/image/fetch/$s_!iq6H!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb53135c9-a342-402d-91fe-0e3749d92e4b_3143x1381.png)
 
 Data is often stored across multiple tables to keep it organized. But when you need a **full view**, you have to bring them back together.
@@ -43,7 +43,7 @@ Data is often stored across multiple tables to keep it organized. But when you n
 
 - Use **INNER**, **LEFT**, or **FULL JOIN** to merge related data.
 
-### 2. Data Enrichment (Extra Info)
+## 2. Data Enrichment (Extra Info)
 ![](https://substackcdn.com/image/fetch/$s_!iPDm!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7113d770-658c-4c48-86d6-f61f0a3676e6_3389x1146.png) 
 
 Sometimes, you already have your main dataset, but you need to **add extra** details from another table.
@@ -52,7 +52,7 @@ Sometimes, you already have your main dataset, but you need to **add extra** det
 
 - A **LEFT JOIN** ensures you keep all records from the main table while pulling extra information.
 
-### 3. Check Existence (Filtering)
+## 3. Check Existence (Filtering)
 ![](https://substackcdn.com/image/fetch/$s_!ddND!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd6b454d5-9474-476c-a14b-ea9193af79bc_3622x1282.png)
 
 You may need to check if a record exists in another table or filter based on missing data.
@@ -72,8 +72,11 @@ When joining tables, your result set depends on which data you want to keep. The
 ![Join Types](https://substackcdn.com/image/fetch/$s_!AsEp!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cadb3a0-fd07-42c3-92be-f2d91839781e_3840x2160.png)
 
 
-### Basic Joins 
-- **No Join** → Returns data from both Table A and Table B with combining them.
+## Basic Joins 
+
+### - No Join
+
+Returns data from both Table A and Table B with combining them.
 
 **SQL TASK**
 
@@ -91,7 +94,8 @@ FROM
 	rental;
 ```
 
-- **Inner Join** → Returns only matching rows from both tables.
+### - Inner Join
+Returns only matching rows from both tables.
 
 **SQL TASK**
 
@@ -111,7 +115,8 @@ ON
     c.customer_id = p.customer_id;
 ```
 
-- **Left Join** → Returns all rows from Table A and matching rows from B.
+### - Left Join
+Returns all rows from Table A and matching rows from B.
 
 **SQL TASK**
 
@@ -131,7 +136,8 @@ ON
     c.customer_id = p.customer_id;
 ```
 
-- **Right Join** → Returns all rows from Table B and matching rows from A.
+### - Right Join
+Returns all rows from Table B and matching rows from A.
 
 **SQL TASK**
 
@@ -151,7 +157,8 @@ ON
     c.customer_id = p.customer_id;
 ```
 
-- **Full / Full Outer Join** → Returns all rows from both tables.
+### - Full / Full Outer Join
+Returns all rows from both tables.
 
 **SQL TASK**
 
@@ -171,8 +178,9 @@ ON
     c.customer_id = p.customer_id;
 ```
 
-### Advanced Joins
-- **Left Anti Join** → Returns row from left that has NO MATCH in the right table.
+## Advanced Joins
+### - Left Anti Join
+Returns row from left that has NO MATCH in the right table.
 
 **SQL TASK**
 
@@ -193,7 +201,8 @@ ON
 WHERE p.customer_id IS NULL;
 ```
 
-- **Right Anti Join** → Returns row from rigth that has NO MATCH in the left table.
+### - Right Anti Join
+Returns row from rigth that has NO MATCH in the left table.
 
 **SQL TASK**
 
@@ -214,7 +223,8 @@ ON
 WHERE c.customer_id IS NULL;
 ```
 
-- **Full Anti Join** → Rows that don’t match in either table.
+### - Full Anti Join
+Rows that don’t match in either table.
 
 **SQL TASK**
 
@@ -235,7 +245,8 @@ ON
 WHERE c.customer_id IS NULL OR p.customer_id IS NULL;
 ```
 
-- **Cross Join (Cartesian Join)** → Combines every row from A with every row from B.
+### - Cross Join (Cartesian Join)
+Combines every row from A with every row from B.
 
 **SQL TASK**
 
@@ -253,16 +264,19 @@ CROSS JOIN
     payment;
 ```
 
-- **Natural Join** → 
+### - Natural Join**
 
-- **Self Join** → 
+### - Self Join** 
 
-### Multi-Table Joins
-- **Multiple Inner Joins** → Joining more than two tables with matches.
+## Multi-Table Joins
+### - Multiple Inner Join 
+Joining more than two tables with matches.
 
-- **Multiple Left Joins** → Keeping all rows from one main table.
+### - Multiple Left Joins
+Keeping all rows from one main table.
 
-- **Inner + Left Joins** → Mixing join types for complex queries.
+### - Inner + Left Joins
+Mixing join types for complex queries.
 
 Each JOIN type serves a different purpose, helping you get the right data for your queries!
 
